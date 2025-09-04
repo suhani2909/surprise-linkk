@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Suhani's Special Teachers' Day Chatbot</title>
+  <style>
+    body {
+      font-family: "Poppins", sans-serif;
+      background: linear-gradient(135deg, #89f7fe, #66a6ff);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .chatbox {
+      width: 380px;
+      height: 550px;
+      background: rgb(196, 196, 218);
+      border-radius: 20px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    .header {
+      background: #4cafef;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+    .messages {
+      flex: 1;
+      padding: 15px;
+      overflow-y: auto;
+      background: #f9f9f9;
+    }
+    .message {
+      margin: 8px 0;
+      padding: 10px 14px;
+      border-radius: 15px;
+      max-width: 80%;
+      line-height: 1.4;
+    }
+    .user {
+      background: #0d0222;
+      align-self: flex-end;
+    }
+    .bot {
+      background: #e2e3e5;
+      align-self: flex-start;
+    }
+    .input-area {
+      display: flex;
+      border-top: 1px solid #ddd;
+    }
+    input {
+      flex: 1;
+      padding: 12px;
+      border: none;
+      outline: none;
+      font-size: 14px;
+    }
+    button {
+      padding: 12px 18px;
+      border: none;
+      background: #4caf50;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    button:hover {
+      background: #43a047;
+    }
+  </style>
+</head>
+<body>
+  <div class="chatbox">
+    <div class="header">🎓 Suhani's Mini Chatbot 😎</div>
+    <div class="messages" id="messages">
+      <div class="message bot">👋 Hello! Type "YES" to get a surprise reply ✨</div>
+    </div>
+    <div class="input-area">
+      <input type="text" id="userInput" placeholder="Type your message...">
+      <button onclick="sendMessage()">Send</button>
+    </div>
+  </div>
+
+  <script>
+    function sendMessage() {
+      let input = document.getElementById("userInput");
+      let text = input.value.trim();
+      if (text === "") return;
+
+      let messages = document.getElementById("messages");
+
+      // Show user message
+      let userMsg = document.createElement("div");
+      userMsg.className = "message user";
+      userMsg.innerText = text;
+      messages.appendChild(userMsg);
+
+      // Bot reply
+      let botMsg = document.createElement("div");
+      botMsg.className = "message bot";
+
+      if (text.toLowerCase() === "yes") {
+        botMsg.innerText = " Happy Teachers’ Day Sir! 😎💗 \n💡 Thanks For Teaching Me the Skill That I am using Right Now 💻";
+      } else {
+        botMsg.innerText = "🤖 I have a special reply only for 'YES'!";
+      }
+
+      messages.appendChild(botMsg);
+      input.value = "";
+      messages.scrollTop = messages.scrollHeight; // Auto scroll
+    }
+  </script>
+</body>
+</html>
+
