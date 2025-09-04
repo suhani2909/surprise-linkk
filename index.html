@@ -3,49 +3,39 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Suhani's Special Teachers' Day Chatbot</title>
+  <title>Suhani's Mini Chatbot 😎</title>
   <style>
     body {
-      font-family: "Poppins", sans-serif;
-      background: linear-gradient(135deg, #89f7fe, #66a6ff);
-      height: 100vh;
+      font-family: Arial, sans-serif;
+      background: #f7f7f7;
       display: flex;
       justify-content: center;
       align-items: center;
+      height: 100vh;
     }
     .chatbox {
-      width: 380px;
-      height: 550px;
-      background: rgb(196, 196, 218);
-      border-radius: 20px;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+      width: 350px;
+      height: 500px;
+      background: #fff;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
       display: flex;
       flex-direction: column;
       overflow: hidden;
     }
-    .header {
-      background: #4cafef;
-      color: white;
-      text-align: center;
-      padding: 15px;
-      font-size: 18px;
-      font-weight: bold;
-    }
     .messages {
       flex: 1;
-      padding: 15px;
+      padding: 10px;
       overflow-y: auto;
-      background: #f9f9f9;
     }
     .message {
-      margin: 8px 0;
-      padding: 10px 14px;
-      border-radius: 15px;
+      margin: 5px 0;
+      padding: 10px;
+      border-radius: 10px;
       max-width: 80%;
-      line-height: 1.4;
     }
     .user {
-      background: pink
+      background: #d1e7dd;
       align-self: flex-end;
     }
     .bot {
@@ -58,30 +48,26 @@
     }
     input {
       flex: 1;
-      padding: 12px;
+      padding: 10px;
       border: none;
       outline: none;
-      font-size: 14px;
     }
     button {
-      padding: 12px 18px;
+      padding: 10px 15px;
       border: none;
       background: #4caf50;
       color: white;
-      font-weight: bold;
       cursor: pointer;
-      transition: 0.3s;
     }
     button:hover {
-      background: #43a047;
+      background: #45a049;
     }
   </style>
 </head>
 <body>
   <div class="chatbox">
-    <div class="header">🎓 Suhani's Mini Chatbot 😎</div>
     <div class="messages" id="messages">
-      <div class="message bot">👋 Hello! Type "YES" to get a surprise reply ✨</div>
+      <div class="message bot">👋 Hello! I am Suhani's Mini Chatbot</div>
     </div>
     <div class="input-area">
       <input type="text" id="userInput" placeholder="Type your message...">
@@ -95,9 +81,8 @@
       let text = input.value.trim();
       if (text === "") return;
 
-      let messages = document.getElementById("messages");
-
       // Show user message
+      let messages = document.getElementById("messages");
       let userMsg = document.createElement("div");
       userMsg.className = "message user";
       userMsg.innerText = text;
@@ -107,18 +92,19 @@
       let botMsg = document.createElement("div");
       botMsg.className = "message bot";
 
-      if (text.toLowerCase() === "yes") {
-        botMsg.innerText = " Happy Teachers’ Day Sir! 😎💗 \n💡 Thanks For Teaching Me the Skill That I am using Right Now 💻";
+      if (text.toLowerCase().includes("sir")) {
+        botMsg.innerText = "Happy Teachers Day Sir 💗 ! Thank You For Teaching Me The Skill That I Am Using Right Now 😎💻";
       } else {
-        botMsg.innerText = "🤖 I have a special reply only for 'YES'!";
+        botMsg.innerText = "I only have a special reply for 'yes' 🤖";
       }
 
       messages.appendChild(botMsg);
       input.value = "";
-      messages.scrollTop = messages.scrollHeight; // Auto scroll
+      messages.scrollTop = messages.scrollHeight; // auto scroll
     }
   </script>
 </body>
 </html>
+
 
 
